@@ -1,7 +1,6 @@
 package com.bars;
 
 import org.junit.AfterClass;
-import org.junit.Assert;
 import org.junit.BeforeClass;
 import org.junit.Test;
 import org.openqa.selenium.*;
@@ -9,12 +8,7 @@ import org.openqa.selenium.ie.InternetExplorerDriver;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
-
-
-import javax.swing.*;
 import java.io.File;
-import java.time.Instant;
-import java.util.Random;
 import java.util.concurrent.TimeUnit;
 
 public class LoginTest {
@@ -27,7 +21,7 @@ public class LoginTest {
         driver = new InternetExplorerDriver();
         driver.manage().window().maximize();
         driver.manage().timeouts().implicitlyWait(15, TimeUnit.SECONDS);
-        driver.get("http://10.10.17.22:8080/barsroot/account/login/");
+        driver.get("http://10.10.17.50:8080/barsroot/account/login/");
     }
     public void userDelay(int time) {
         try {Thread.sleep(time);
@@ -109,10 +103,6 @@ public class LoginTest {
         CooseRah.click();
         WebElement SpecPar = driver.findElement(By.name("VALUE"));
         SpecPar.clear();
-        //Вставка рандомного числа
-//        Random random = new Random();
-//        int num = 36 + random.nextInt(100 - 36);
-//        String str = Integer.toString(num);
         SpecPar.sendKeys("99A");
 
         WebElement SaveSPbut = driver.findElement(By.xpath("//*[@class = 'x-btn x-row-editor-update-button x-unselectable x-btn-default-small x-noicon x-btn-noicon x-btn-default-small-noicon']"));
