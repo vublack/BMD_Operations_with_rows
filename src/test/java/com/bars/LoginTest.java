@@ -21,7 +21,7 @@ public class LoginTest {
         driver = new InternetExplorerDriver();
         driver.manage().window().maximize();
         driver.manage().timeouts().implicitlyWait(15, TimeUnit.SECONDS);
-        driver.get("http://10.10.17.50:8080/barsroot/");
+        driver.get("http://10.10.17.22:8080/barsroot/account/login/");
     }
     public void userDelay(int time) {
         try {Thread.sleep(time);
@@ -161,14 +161,10 @@ public class LoginTest {
                 .until(ExpectedConditions.visibilityOf(DelConf));
         DelConf.click();
         OnovOK.click();
-
-                    //!!!! Вихід з фрейму!!!!
-        driver.switchTo().defaultContent();
-
-
     }
     @AfterClass
     public static void tearDown() {
+        driver.switchTo().defaultContent();
         WebElement profileButton = driver.findElement(By.id("btnProfile"));
         profileButton.click();
         WebElement logoutButton = driver.findElement(By.xpath("//*[@id='userProfile']/div[2]/a[2]"));
