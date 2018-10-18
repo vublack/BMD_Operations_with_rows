@@ -22,8 +22,11 @@ public class LoginTest {
         driver.manage().window().maximize();
         driver.manage().timeouts().implicitlyWait(15, TimeUnit.SECONDS);
         driver.get("http://10.10.17.22:8080/barsroot/account/login/");
+//        driver.get("http://10.10.17.50:8080/barsroot/account/login/");
+//        driver.get("http://10.10.17.40:8080/barsroot/account/login/");
+//        driver.get("http://10.10.17.40:8082/barsroot/account/login/");
     }
-    public void userDelay(int time) {
+    private void userDelay(int time) {
         try {Thread.sleep(time);
         } catch (InterruptedException e) {
             e.printStackTrace(); }
@@ -85,7 +88,6 @@ public class LoginTest {
         WebElement CelectNewRow = driver.findElement(By.xpath("(//*[@class='x-grid-cell-inner x-grid-cell-inner-row-numberer'])[text()='*']"));
         (new WebDriverWait(driver, 50))
                 .until(ExpectedConditions.visibilityOf(CelectNewRow));
-//        Actions builder = new Actions(driver);
         builder.doubleClick(CelectNewRow).perform();
 
         WebElement DropPar = driver.findElement(By.xpath("(//*[@class = 'x-trigger-index-0 x-form-trigger x-form-arrow-trigger x-form-trigger-first'])[1]"));
@@ -123,15 +125,13 @@ public class LoginTest {
         (new WebDriverWait(driver, 30))
                 .until(ExpectedConditions.visibilityOf(CelectRow));
        DropPar.click();
-//        (new WebDriverWait(driver, 30))
-//                .until(ExpectedConditions.visibilityOf(CoosePar));
-        CoosePar.click();
-        DropBalrah.click();
-        CooseRah.click();
-        SpecPar.clear();
-        SpecPar.sendKeys("98A");
-        SaveSPbut.click();
-        (new WebDriverWait(driver, 30))
+       CoosePar.click();
+       DropBalrah.click();
+       CooseRah.click();
+       SpecPar.clear();
+       SpecPar.sendKeys("98A");
+       SaveSPbut.click();
+       (new WebDriverWait(driver, 30))
                 .until(ExpectedConditions.visibilityOf(OnovWindow));
         OnovWindow.click();
         (new WebDriverWait(driver, 30))
